@@ -155,6 +155,9 @@
 
   <script>
     // ====== ここから JS（元コードを内蔵化） ======
+    // ★ ここに発行したWebアプリURLを貼る
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzuYqabHWFbJf4YumPbaeb9yKHBrzP0NiyEVJzkYnWbOpdtoP3P8K4F4NY-7AKuS9ZS/exec';
+
     class MultiStepForm{
       constructor(){this.currentStep=1;this.totalSteps=5;this.formData={};this.init()}
       init(){this.bindEvents();this.updateUI()}
@@ -277,20 +280,41 @@
         else if(this.currentStep===this.totalSteps-1){next.style.display='none';submit.style.display='block'}
         else{next.style.display='block';submit.style.display='none'}
       }
+
+      // ★★★ ここをGAS送信版に置き換え済み ★★★
       async submitForm(e){
         e.preventDefault();
-        if(!this.validateCurrentStep())return;
+        if(!this.validateCurrentStep()) return;
+
+        const btn=document.getElementById('submitBtn');
+        const original=btn.textContent;
+        btn.textContent='送信中...';
+        btn.disabled=true;
+
         try{
-          const btn=document.getElementById('submitBtn');const txt=btn.textContent;btn.textContent='送信中...';btn.disabled=true;
-          await new Promise(r=>setTimeout(r,800)); // ダミー送信
-          this.currentStep++;this.updateUI();
-          btn.textContent=txt;btn.disabled=false;
+          const fd=new FormData();
+          fd.append('priority', this.formData.priority || '');
+          (this.formData.qualifications || []).forEach(v => fd.append('qualifications', v));
+          ['address','name','age','phone','email'].forEach(k => fd.append(k, this.formData[k] || ''));
+          fd.append('terms_agreement', this.formData.terms_agreement ? 'true' : 'false');
+          fd.append('agent_service', this.formData.agent_service ? 'true' : 'false');
+
+          // CORSエラーを出さずに投げ切るため no-cors（レスポンスは読みません）
+          await fetch(WEB_APP_URL, { method:'POST', body:fd, mode:'no-cors' });
+
+          // 完了画面へ
+          this.currentStep++;
+          this.updateUI();
         }catch(err){
-          console.error(err);this.showError('送信エラーが発生しました。もう一度お試しください。');
-          const btn=document.getElementById('submitBtn');btn.textContent='登録完了！';btn.disabled=false;
+          console.error(err);
+          this.showError('送信エラーが発生しました。もう一度お試しください。');
+        }finally{
+          btn.textContent=original;
+          btn.disabled=false;
         }
       }
     }
+
     document.addEventListener('DOMContentLoaded',()=>{
       new MultiStepForm();
       const els=document.querySelectorAll('.form-input,.form-select,.qualification-option,.priority-option');
