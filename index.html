@@ -6,7 +6,6 @@
   <title>想いやスキルが収入に繋がる理念マッチ転職</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ====== ここから CSS（元コードを内蔵化） ====== */
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Noto Sans JP',sans-serif;background:linear-gradient(135deg,#05A862 0%,#05A862 100%);min-height:100vh;color:#181818;overflow-x:hidden}
     .app-container{position:relative;min-height:100vh;background:linear-gradient(135deg,#05A862 0%,#05A862 100%)}
@@ -59,7 +58,6 @@
     @media (max-width:480px){.progress-indicator{gap:5px}.step{width:30px;height:30px;font-size:12px}.qualification-option,.priority-option{padding:12px 15px}.qualification-text,.priority-text{font-size:13px}}
     @keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
     .error-message{animation:slideIn .3s ease}
-    /* ====== ここまで CSS ====== */
   </style>
 </head>
 <body>
@@ -82,7 +80,7 @@
             <div class="priority-grid">
               <label class="priority-option"><input type="radio" name="priority" value="vision"><span class="priority-text">ビジョン</span></label>
               <label class="priority-option"><input type="radio" name="priority" value="fulfillment"><span class="priority-text">やりがい</span></label>
-              <label class="priority-option selected"><input type="radio" name="priority" value="salary"><span class="priority-text">給与</span></label>
+              <label class="priority-option"><input type="radio" name="priority" value="salary"><span class="priority-text">給与</span></label>
               <label class="priority-option"><input type="radio" name="priority" value="location"><span class="priority-text">勤務地</span></label>
               <label class="priority-option"><input type="radio" name="priority" value="atmosphere"><span class="priority-text">雰囲気</span></label>
               <label class="priority-option"><input type="radio" name="priority" value="benefits"><span class="priority-text">福利厚生</span></label>
@@ -97,10 +95,10 @@
             <div class="qualification-grid">
               <label class="qualification-option"><input type="checkbox" name="qualifications" value="service_manager"><span class="qualification-text">サービス管理責任者</span></label>
               <label class="qualification-option"><input type="checkbox" name="qualifications" value="care_worker"><span class="qualification-text">介護福祉士</span></label>
-              <label class="qualification-option selected"><input type="checkbox" name="qualifications" value="child_development_manager"><span class="qualification-text">児童発達管理責任者</span></label>
+              <label class="qualification-option"><input type="checkbox" name="qualifications" value="child_development_manager"><span class="qualification-text">児童発達管理責任者</span></label>
               <label class="qualification-option"><input type="checkbox" name="qualifications" value="childcare_worker"><span class="qualification-text">保育士</span></label>
               <label class="qualification-option"><input type="checkbox" name="qualifications" value="counselor"><span class="qualification-text">相談支援専門員</span></label>
-              <label class="qualification-option selected"><input type="checkbox" name="qualifications" value="social_worker"><span class="qualification-text">社会福祉士</span></label>
+              <label class="qualification-option"><input type="checkbox" name="qualifications" value="social_worker"><span class="qualification-text">社会福祉士</span></label>
               <label class="qualification-option"><input type="checkbox" name="qualifications" value="nurse"><span class="qualification-text">看護師</span></label>
               <label class="qualification-option"><input type="checkbox" name="qualifications" value="other"><span class="qualification-text">その他</span></label>
             </div>
@@ -154,7 +152,6 @@
   </div>
 
   <script>
-    // ====== ここから JS（元コードを内蔵化） ======
     // ★ ここに発行したWebアプリURLを貼る
     const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzuYqabHWFbJf4YumPbaeb9yKHBrzP0NiyEVJzkYnWbOpdtoP3P8K4F4NY-7AKuS9ZS/exec';
 
@@ -280,8 +277,6 @@
         else if(this.currentStep===this.totalSteps-1){next.style.display='none';submit.style.display='block'}
         else{next.style.display='block';submit.style.display='none'}
       }
-
-      // ★★★ ここをGAS送信版に置き換え済み ★★★
       async submitForm(e){
         e.preventDefault();
         if(!this.validateCurrentStep()) return;
@@ -299,10 +294,7 @@
           fd.append('terms_agreement', this.formData.terms_agreement ? 'true' : 'false');
           fd.append('agent_service', this.formData.agent_service ? 'true' : 'false');
 
-          // CORSエラーを出さずに投げ切るため no-cors（レスポンスは読みません）
           await fetch(WEB_APP_URL, { method:'POST', body:fd, mode:'no-cors' });
-
-          // 完了画面へ
           this.currentStep++;
           this.updateUI();
         }catch(err){
@@ -339,7 +331,6 @@
       style.textContent='@keyframes ripple{to{transform:scale(4);opacity:0}}';
       document.head.appendChild(style);
     });
-    // ====== ここまで JS ======
   </script>
 </body>
 </html>
