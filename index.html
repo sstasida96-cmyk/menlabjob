@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>想いやスキルが収入に繋がる理念マッチ転職 - 介護ワーカー</title>
+  <title>想いやスキルが収入に繋がる理念マッチ転職</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Noto Sans JP',sans-serif;background:linear-gradient(135deg,#05A862 0%,#05A862 100%);min-height:100vh;color:#181818;overflow-x:hidden}
+    body{font-family:'Noto Sans JP',sans-serif;background:#05A862;min-height:100vh;color:#181818;overflow-x:hidden}
     
     /* フォーム画面用スタイル */
     .form-view {display:block}
     .thanks-view {display:none}
     
-    .app-container{position:relative;min-height:100vh;background:linear-gradient(135deg,#05A862 0%,#05A862 100%)}
-    .app-container::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23F0F2F4' fill-opacity='0.1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,122.7C960,117,1056,171,1152,181.3C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;background-size:cover;pointer-events:none}
+    .app-container{
+      position:relative;
+      min-height:100vh;
+      background-image:url('https://page.gensparksite.com/v1/base64_upload/8054063f2769353f450d60d4bd9c281b');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+    .app-container::before{content:'';position:absolute;inset:0;background:rgba(5,168,98,0.15);pointer-events:none}
     .main-content{display:flex;justify-content:center;align-items:center;padding:40px 20px;position:relative;z-index:10;min-height:100vh}
     .form-container{background:#fff;border-radius:25px;box-shadow:0 20px 60px rgba(0,0,0,.1);padding:40px 30px 30px;max-width:500px;width:100%;position:relative;overflow:hidden}
     .form-container::before{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2305A862' fill-opacity='1' d='M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,165.3C672,171,768,213,864,213.3C960,213,1056,171,1152,138.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;background-size:cover;pointer-events:none}
@@ -49,7 +56,6 @@
     .checkbox-option{display:flex;align-items:center;gap:10px;cursor:pointer}
     .checkbox-option input[type="checkbox"]{width:20px;height:20px;accent-color:#05A862}
     .checkbox-text{font-size:14px;font-weight:500;color:#181818}
-    .promotion-text{background:linear-gradient(135deg,#FCD166 0%,#FCD166 100%);color:#181818;text-align:center;padding:15px;border-radius:12px;font-size:14px;font-weight:600;margin-bottom:10px}
     .thanks-container{text-align:center;padding:40px 20px}
     .thanks-icon{width:80px;height:80px;background:#05A862;border-radius:50%;margin:0 auto 25px;position:relative}
     .thanks-icon::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E") no-repeat center;background-size:contain}
@@ -62,7 +68,12 @@
     .btn-next:hover,.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(252,209,102,.3)}
     
     /* サンクスページ用スタイル */
-    body.show-thanks {background:#F5F5F5}
+    body.show-thanks {
+      background-image:url('https://page.gensparksite.com/v1/base64_upload/8054063f2769353f450d60d4bd9c281b');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
     body.show-thanks .form-view {display:none}
     body.show-thanks .thanks-view {display:block}
     
@@ -552,7 +563,6 @@
 ユーザーは、本サービスの利用において、自身の情報および求人掲載事業者との連絡等に起因して生じた一切の紛争、クレーム等に関し、自己の費用および責任をもって対応するものとし、当社に迷惑および損害を与えないことを保証します。
 第4条（禁止事項）
 ユーザーは、本サービスの利用にあたり、自己または第三者を利用して以下の各号のいずれかに該当する行為をしてはなりません。当社は、ユーザーが以下の各号のいずれかに該当する行為をしたと判断した場合、何らの催告を経ずに、当該ユーザーのアカウントの機能を停止することができます。
-
 本規約に違反する行為
 法令等、条例に違反する行為または公序良俗に反する行為
 当社又は第三者に対する暴力的な言動、不当な要求又はそれらに類する行為
@@ -667,7 +677,6 @@
                   <label class="checkbox-option"><input type="checkbox" name="terms_agreement" required><span class="checkbox-text">利用規約に同意する</span></label>
                   <label class="checkbox-option"><input type="checkbox" name="agent_service"><span class="checkbox-text">エージェントサービスも申し込む</span></label>
                 </div>
-                <div class="promotion-text">今だけアマギフ500円プレゼント！</div>
               </div>
             </div>
 
@@ -675,7 +684,7 @@
             <div class="form-step" data-step="5">
               <div class="thanks-container">
                 <div class="thanks-icon"></div>
-                <h2 class="thanks-title">ご登録ありがとうございます！</h2>
+                <h2 class="thanks-title">ご登録ありがとうございます!</h2>
                 <p class="thanks-description">正式リリース後、マイページ情報をお送りします。</p>
               </div>
             </div>
@@ -684,7 +693,7 @@
           <div class="nav-buttons">
             <button type="button" class="btn-back" id="backBtn" style="display:none;">戻る</button>
             <button type="button" class="btn-next" id="nextBtn">次へ</button>
-            <button type="button" class="btn-submit" id="submitBtn" style="display:none;">登録完了！</button>
+            <button type="button" class="btn-submit" id="submitBtn" style="display:none;">登録完了!</button>
           </div>
         </div>
       </main>
@@ -708,7 +717,7 @@
               <i class="fas fa-headset"></i>
             </div>
           </div>
-          <p class="consultation-subtitle">介護転職のプロに<br>無料相談が可能です。</p>
+          <p class="consultation-subtitle">転職のプロに<br>無料相談が可能です。</p>
           <div class="consultation-box">
             <div class="consultation-label">
               <i class="fas fa-phone"></i>
@@ -721,7 +730,7 @@
               <span>050-1790-8445</span>
             </div>
           </div>
-          <a href="tel:0120-510-030" class="cta-button">
+          <a href="tel:050-1790-8445" class="cta-button">
             <i class="fas fa-phone-alt"></i>
             電話で相談する
           </a>
@@ -822,7 +831,7 @@
       <!-- フッターノート -->
       <div class="footer-note">
         <h3 class="footer-note-title">サービスすべて無料</h3>
-        <p class="footer-note-text">介護ワーカーがご登録者様よりお金をいただくことは一切ございません。</p>
+        <p class="footer-note-text">ご登録者様よりお金をいただくことは一切ございません。</p>
       </div>
     </main>
   </div>
